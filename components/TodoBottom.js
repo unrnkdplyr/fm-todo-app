@@ -1,22 +1,31 @@
 import RadioButton from './RadioButton'
+import useFilter from '../helpers/useFilter'
+import useLightClass from '../helpers/useLightClass'
 
 import todoBottomStyles from '../styles/TodoBottom.module.css'
 
-const TodoBottom = ({ filter, isMobile, noOfActive, onClearHandler, onFilterHandler }) => {
-  const count = noOfActive || 0
+const TodoBottom = ({ isMobile, noOfActive, onClearHandler }) => {
+  const [filter, setFilter] = useFilter()
+
   const classes = isMobile ? todoBottomStyles.mobile : todoBottomStyles.bottom
+  const count = noOfActive || 0
   const filters = ['all', 'active', 'completed']
 
+  const handleChange = ({ target }) => {
+    const { id } = target
+    setFilter(id)
+  }
+
   return (
-    <div className={classes}>
+    <div className={useLightClass(classes, todoBottomStyles.light)}>
       <div className={todoBottomStyles['no-of-active']}>
-        <span>{count}</span>
-        {` item${count > 1 ? 's' : ''} left`}
+        <span>{count || 'No'}</span>
+        {` item${!count || count > 1 ? 's' : ''} left`}
       </div>
       {!isMobile && (
         <div className={todoBottomStyles.filters}>
           {filters.map((filterName, i) => (
-            <RadioButton key={i} name="filter" onFilterHandler={onFilterHandler} title={filterName} selected={filter} />
+            <RadioButton key={i} name="filter" onChangeHandler={handleChange} title={filterName} selected={filter} />
           ))}
         </div>
       )}

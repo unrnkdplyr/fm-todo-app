@@ -1,33 +1,15 @@
-import { useEffect, useState } from 'react'
-
 import TodoBottom from './TodoBottom'
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
+import FilterProvider from '../contexts/FilterProvider'
+import useTodos from '../helpers/useTodos'
 
-const Todo = ({ data }) => {
-  const [todos, setTodos] = useState(data)
-  const [filter, setFilter] = useState('all')
+const Todo = () => {
+  const [todos, setTodos] = useTodos()
   const noOfActive = todos.filter((todo) => !todo.completed).length || 0
 
   const handleClear = () => {
     const newTodos = todos.filter((todo) => !todo.completed)
-    setTodos(newTodos)
-  }
-
-  const handleComplete = ({ target }) => {
-    const { checked, id } = target
-    const newTodos = Array.from(todos)
-    const index = todos.findIndex((todo) => id == todo.id)
-    newTodos[index].completed = checked
-    setTodos(newTodos)
-  }
-
-  const handleFilter = ({ target }) => {
-    const { id } = target
-    setFilter(id)
-  }
-  const handleRemove = ({ target }) => {
-    const newTodos = todos.filter((todo) => todo.id != target.id)
     setTodos(newTodos)
   }
 
@@ -46,12 +28,12 @@ const Todo = ({ data }) => {
   }
 
   return (
-    <>
+    <FilterProvider>
       <TodoInput onSubmitHandler={handleSubmit} />
-      <TodoList filter={filter} list={todos} onCompleteHandler={handleComplete} onRemoveHandler={handleRemove} />
-      <TodoBottom filter={filter} isMobile noOfActive={noOfActive} onClearHandler={handleClear} />
-      <TodoBottom filter={filter} noOfActive={noOfActive} onClearHandler={handleClear} onFilterHandler={handleFilter} />
-    </>
+      <TodoList list={todos} />
+      <TodoBottom isMobile noOfActive={noOfActive} onClearHandler={handleClear} />
+      <TodoBottom noOfActive={noOfActive} onClearHandler={handleClear} />
+    </FilterProvider>
   )
 }
 

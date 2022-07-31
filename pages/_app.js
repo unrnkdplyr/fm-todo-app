@@ -1,12 +1,15 @@
 import Layout from '../components/Layout'
+import DisplayProvider from '../contexts/DisplayProvider'
 
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <DisplayProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </DisplayProvider>
   )
 }
 
