@@ -1,0 +1,14 @@
+.label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+}
+
+.label:hover {
+  color: hsl(233, 11%, 84%);
+}
+
+.span {
+  text-transform: capitalize;
+}

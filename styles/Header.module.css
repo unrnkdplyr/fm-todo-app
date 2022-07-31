@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.h1 {
+  color: white;
+  font-weight: 700;
+  letter-spacing: 18px;
+}
+
+.icon {
+  cursor: pointer;
+}

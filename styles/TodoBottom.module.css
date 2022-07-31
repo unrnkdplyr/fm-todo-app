@@ -1,0 +1,70 @@
+.mobile,
+.bottom {
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 0 0 8px 8px;
+  color: hsl(234, 11%, 52%);
+  display: flex;
+  font-size: 18px;
+  height: 60px;
+  justify-content: space-between;
+  padding: 15px;
+  width: 100%;
+}
+
+.mobile.light,
+.bottom.light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(236, 9%, 61%);
+}
+
+.mobile {
+  display: none;
+}
+
+.no-of-active {
+  align-self: center;
+}
+
+.filters {
+  display: flex;
+}
+
+.filters input[type='radio'] {
+  opacity: 0;
+}
+
+.filters input[type='radio']:checked ~ span {
+  color: hsl(220, 98%, 61%);
+}
+
+.clear {
+  align-self: center;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.clear:hover {
+  color: hsl(233, 11%, 84%);
+}
+
+/* Mobile Phones Portrait */
+@media (max-width: 640px) {
+  .bottom {
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+
+  .mobile {
+    display: flex;
+  }
+
+  .bottom .no-of-active,
+  .bottom .clear {
+    display: none;
+  }
+
+  .filters {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

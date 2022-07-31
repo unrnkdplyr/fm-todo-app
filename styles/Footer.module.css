@@ -1,0 +1,10 @@
+.footer {
+  align-self: center;
+  bottom: 20px;
+  color: hsl(233, 14%, 35%);
+  position: absolute;
+}
+
+.footer.light {
+  color: hsl(236, 9%, 61%);
+}

@@ -1,0 +1,70 @@
+.li {
+  background-color: hsl(235, 24%, 19%);
+  border-bottom: 1px solid hsl(233, 18%, 38%);
+  color: hsl(233, 11%, 84%);
+  display: flex;
+  font-size: 18px;
+  height: 60px;
+  justify-content: space-between;
+  padding: 15px;
+  width: 100%;
+}
+
+.li.light {
+  background-color: hsl(0, 0%, 98%);
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+  color: hsl(235, 19%, 35%);
+}
+
+.li:hover .remove {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+}
+
+.input {
+  border: 1px solid hsl(234, 11%, 52%);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.input:checked {
+  background: url('/images/icon-check.svg'), linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.input:checked ~ span {
+  color: hsl(234, 11%, 52%);
+  text-decoration: line-through;
+}
+
+.input.light {
+  border: 1px solid hsl(233, 11%, 84%);
+}
+
+.input.light:checked ~ span {
+  color: hsl(233, 11%, 84%);
+}
+
+.remove {
+  cursor: pointer;
+  display: none;
+  height: 20px;
+  width: 20px;
+}

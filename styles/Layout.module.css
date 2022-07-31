@@ -1,0 +1,35 @@
+.bg-image {
+  background-image: url('/images/bg-desktop-dark.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  transition: all 0.33s;
+}
+
+.bg-image.light {
+  background-image: url('/images/bg-desktop-light.jpg');
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: -220px auto 0;
+  width: 540px;
+}
+
+/* Mobile Phones Portrait */
+@media (max-width: 640px) {
+  .bg-image {
+    background-image: url('/images/bg-mobile-dark.jpg');
+    height: 200px;
+  }
+
+  .bg-image.light {
+    background-image: url('/images/bg-mobile-light.jpg');
+  }
+
+  .container {
+    margin-top: -120px;
+    width: 85%;
+  }
+}
